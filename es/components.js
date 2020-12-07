@@ -6,18 +6,17 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import MediaQuery from 'react-responsive';
-import { connect } from 'react-redux';
-import { breakPoints } from './defaults';
+import React from "react";
+import PropTypes from "prop-types";
+import MediaQuery from "react-responsive";
+import { connect } from "react-redux";
+import { breakPoints } from "./defaults";
 export var MediaQueryWrapper = function MediaQueryWrapper() {
   var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-  var dispatch = props.dispatch,
-      fakeWidth = props.fakeWidth,
+  var fakeWidth = props.fakeWidth,
       children = props.children,
-      other = _objectWithoutProperties(props, ["dispatch", "fakeWidth", "children"]);
+      other = _objectWithoutProperties(props, ["fakeWidth", "children"]);
 
   var values = {
     deviceWidth: fakeWidth,
@@ -30,12 +29,11 @@ export var MediaQueryWrapper = function MediaQueryWrapper() {
 MediaQueryWrapper.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   component: PropTypes.oneOfType([PropTypes.node, PropTypes.func, PropTypes.string, PropTypes.symbol]),
-  dispatch: PropTypes.func.isRequired,
   fakeWidth: PropTypes.number.isRequired
 };
 MediaQueryWrapper.defaultProps = {
   children: undefined,
-  component: 'div'
+  component: "div"
 };
 export var responsiveWrapper = function responsiveWrapper() {
   var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
